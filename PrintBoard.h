@@ -7,7 +7,7 @@ int PrintBoard(void)
     printf("%d ", a);
     for(counts = 1;counts!=10;counts++)
     {
-     printf("| %c |",array[count][counts]);
+     printf("| %c |",boardIndex[count][counts]);
     }
     printf("\n");
     a++;

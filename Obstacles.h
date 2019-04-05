@@ -1,23 +1,99 @@
-int Obstacles(int Column)
+int Obstacles()
 {
-  int count, counts;
- for(count=1;count<Column;count++)
- {
-   for(counts=1;counts<7;counts++)
-   {
-     if(array[counts][count] != ' ' && array[counts][count] != 33)//Empty space or what we use as a sign marking an obstacle
+  int count, counts, counter=0;
+  for(count=1;count<7;count++)
+  {
+     if(boardIndex[count][1][0] == ' ')
      {
-       return 2; //Will tell us that the piece cannot move yet
-       count = Column;
-       break;
+       counter++;
      }
-     if(array[counts][count] == 33 && array[counts][count][1] != ' ')
+     if(counter==6)
      {
-       return 2; //Will tell us that the piece cannot move yet
-       count = Column;
-       break;
+       for(counts=0;counts<20;counts++)
+       {
+         boardIndex[5][2][counts] = boardIndex[5][2][counts+1];
+         count = 7;
+       }
      }
-   }
-   counts=1;
- }
+  }
+  counter = 0;
+  for(count=1;count<7;count++)
+  {
+     if(boardIndex[count][2][0] == ' ')
+     {
+       counter++;
+     }
+     if(counter==6)
+     {
+       for(counts=0;counts<20;counts++)
+       {
+         boardIndex[1][3][counts] = boardIndex[1][3][counts+1];
+         count = 7;
+       }
+     }
+  }
+  counter = 0;
+  for(count=1;count<7;count++)
+  {
+     if(boardIndex[count][3][0] == ' ')
+     {
+       counter++;
+     }
+     if(counter==6)
+     {
+       for(counts=0;counts<20;counts++)
+       {
+         boardIndex[3][4][counts] = boardIndex[3][4][counts+1];
+         count = 7;
+       }
+     }
+  }
+  counter = 0;
+  for(count=1;count<7;count++)
+  {
+     if(boardIndex[count][4][0] == ' ')
+     {
+       counter++;
+     }
+     if(counter==6)
+     {
+       for(counts=0;counts<20;counts++)
+       {
+         boardIndex[4][5][counts] = boardIndex[4][5][counts+1];
+         count = 7;
+       }
+     }
+  }
+  counter = 0;
+  for(count=1;count<7;count++)
+  {
+     if(boardIndex[count][5][0] == ' ')
+     {
+       counter++;
+     }
+     if(counter==6)
+     {
+       for(counts=0;counts<20;counts++)
+       {
+         boardIndex[2][6][counts] = boardIndex[2][6][counts+1];
+         count = 7;
+       }
+     }
+  }
+  counter = 0;
+  for(count=1;count<7;count++)
+  {
+     if(boardIndex[count][6][0] == ' ')
+     {
+       counter++;
+     }
+     if(counter==6)
+     {
+       for(counts=0;counts<20;counts++)
+       {
+         boardIndex[6][7][counts] = boardIndex[6][7][counts+1];
+         count = 7;
+       }
+     }
+  }
 }
