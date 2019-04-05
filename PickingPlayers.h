@@ -18,13 +18,13 @@ void PickingPlayers(void){
         fflush(stdout);
     for(i=0;i<playerCount;i++){
         printf("Please pick your colour:\n"); //Getting player colours
-        printf("Blue = blu\n");
-        printf("Black = bla\n");
-        printf("Red = red\n");
-        printf("Green = gre\n");
-        printf("Yellow = yel\n");
-        printf("White = whi\n");
-        printf("Please select a colour using its 3 letter code\n");
+        printf("Blue = b\n");
+        printf("Orange = o\n");
+        printf("Red = r\n");
+        printf("Green = g\n");
+        printf("Yellow = y\n");
+        printf("White = w\n");
+        printf("Please select a colour using its 1 letter code\n");
         printf("Please dont pick a colour that's already been picked\n");
         scanf("%s", &players[i].colour);
         // for(j=i-1;j>=0;j--){
