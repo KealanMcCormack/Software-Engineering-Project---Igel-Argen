@@ -1,4 +1,5 @@
-int Obstacles()
+extern char boardIndex[6][9][25];
+int Obstacles(void)
 {
   int count, counts, counter=0;
   for(count=1;count<7;count++)

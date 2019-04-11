@@ -1,3 +1,4 @@
+extern char boardIndex[6][9][25];
 int PrintBoard(void)
 {
   int count, counts=1, a=1;
@@ -7,7 +8,7 @@ int PrintBoard(void)
     printf("%d ", a);
     for(counts = 1;counts!=10;counts++)
     {
-     printf("| %c |",boardIndex[count][counts]);
+     printf("| %c |", boardIndex[count][counts][0]);
     }
     printf("\n");
     a++;
