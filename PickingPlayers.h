@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct{
-    enum colour PlayerColour;
+struct Player{
+    char colour;
     char name[20];
-}Player;
+};
 extern int playerCount;
+extern struct Player players[6];
 
 void PickingPlayers(void){
     int i,j;
+    char temp;
     printf("Please enter the amount of players\n");
         scanf("%d", &playerCount);
         fflush(stdout);
     for(i=0;i<playerCount;i++){
+        printf("Please enter your name\n");
+            scanf("%s", &players[i].name);
         printf("Please pick your colour:\n"); //Getting player colours
         printf("Blue = b\n");
         printf("Orange = o\n");
@@ -22,13 +26,13 @@ void PickingPlayers(void){
         printf("White = w\n");
         printf("Please select a colour using its 1 letter code\n");
         printf("Please dont pick a colour that's already been picked\n");
-            scanf("%c", &players[i].colour);
-        // for(j=i-1;j>=0;j--){
-        //     if(strcmp(players[i].colour, players[j].colour)==0){
-        //         printf("This Colour has already been picked\n");
-        //         players[j].colour = '\0';
-        //         i--;
-        //     }
-        // }
-    }
+            scanf("%c", &temp);
+        for(j=0;j<playerCount;j++){
+           if(players[j].colour == temp){
+               printf("Please pick a different colour\n");
+                    scanf("%d", &temp);
+                break;
+           }
+       }
+    players[i].colour = temp;
 }

@@ -7,9 +7,6 @@
 #include "PickingPlayers.h"
 #include "PlacingTokens.h"
 
-enum colour {
-    blue, orange, red, green, yellow, white
-}colour;
 
 /*Declaring global variables*/
 struct Player players[6];
