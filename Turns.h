@@ -1,7 +1,9 @@
 extern char boardIndex[6][9][25];
-int Turns(int dice, int playerno)
+void Turns(void)
 {
-  int temp, counter=0, count, counts;
+  int temp, counter=0, count, counts, dice;
+  srand(time(NULL));
+  dice = rand() % 6 + 1;
   printf("\nTime to Move\n");
   for(count=1;count<10;count++)
   {

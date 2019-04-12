@@ -1,4 +1,3 @@
-//extern typedef players[6];
 extern char boardIndex[6][9][25];
 int Sidestep(char PlayerColour)
 {
