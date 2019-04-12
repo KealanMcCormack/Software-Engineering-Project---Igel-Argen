@@ -1,5 +1,5 @@
 extern char boardIndex[6][9][25];
-int PrintBoard(void)
+void PrintBoard(void)
 {
   int count, counts=1, a=1;
   printf("    1    2    3    4    5    6    7    8    9 \n");

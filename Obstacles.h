@@ -4,7 +4,7 @@ int Obstacles(void)
   int count, counts, counter=0;
   for(count=1;count<7;count++)
   {
-     if(boardIndex[count][1][0] == ' ')
+     if(boardIndex[count][1][0] == '\0')
      {
        counter++;
      }
@@ -20,7 +20,7 @@ int Obstacles(void)
   counter = 0;
   for(count=1;count<7;count++)
   {
-     if(boardIndex[count][2][0] == ' ')
+     if(boardIndex[count][2][0] == '\0')
      {
        counter++;
      }
@@ -36,7 +36,7 @@ int Obstacles(void)
   counter = 0;
   for(count=1;count<7;count++)
   {
-     if(boardIndex[count][3][0] == ' ')
+     if(boardIndex[count][3][0] == '\0')
      {
        counter++;
      }
@@ -52,7 +52,7 @@ int Obstacles(void)
   counter = 0;
   for(count=1;count<7;count++)
   {
-     if(boardIndex[count][4][0] == ' ')
+     if(boardIndex[count][4][0] == '\0')
      {
        counter++;
      }
@@ -68,7 +68,7 @@ int Obstacles(void)
   counter = 0;
   for(count=1;count<7;count++)
   {
-     if(boardIndex[count][5][0] == ' ')
+     if(boardIndex[count][5][0] == '\0')
      {
        counter++;
      }
@@ -84,7 +84,7 @@ int Obstacles(void)
   counter = 0;
   for(count=1;count<7;count++)
   {
-     if(boardIndex[count][6][0] == ' ')
+     if(boardIndex[count][6][0] == '\0')
      {
        counter++;
      }
