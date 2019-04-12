@@ -8,7 +8,7 @@ int Obstacles(void)
      {
        counter++;
      }
-     if(counter==6)
+     if(counter==6 && boardIndex[5][2][0] == 'X')
      {
        for(counts=0;counts<20;counts++)
        {
@@ -24,7 +24,7 @@ int Obstacles(void)
      {
        counter++;
      }
-     if(counter==6)
+     if(counter==6 && boardIndex[1][3][0]=='X')
      {
        for(counts=0;counts<20;counts++)
        {
@@ -40,7 +40,7 @@ int Obstacles(void)
      {
        counter++;
      }
-     if(counter==6)
+     if(counter==6 && boardIndex[3][4][0]=='X')
      {
        for(counts=0;counts<20;counts++)
        {
@@ -56,7 +56,7 @@ int Obstacles(void)
      {
        counter++;
      }
-     if(counter==6)
+     if(counter==6 && boardIndex[4][5][0]=='X')
      {
        for(counts=0;counts<20;counts++)
        {
@@ -72,7 +72,7 @@ int Obstacles(void)
      {
        counter++;
      }
-     if(counter==6)
+     if(counter==6 && boardIndex[2][6][0]=='X')
      {
        for(counts=0;counts<20;counts++)
        {
@@ -88,7 +88,7 @@ int Obstacles(void)
      {
        counter++;
      }
-     if(counter==6)
+     if(counter==6 && boardIndex[6][7][0]=='X')
      {
        for(counts=0;counts<20;counts++)
        {
