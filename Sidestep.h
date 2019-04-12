@@ -1,35 +1,42 @@
 extern char boardIndex[6][9][25];
 int Sidestep(char PlayerColour)
 {
-  int a=0, temp, count=0, counts, row, column;//Need to do chack for player colour and what counter they're moving
-  char b[1];
+  int a=0, temp, count=0, counts, row, column, rowup, rowdown;//Need to do chack for player colour and what counter they're moving
+
   while(count != 2)
   {
     printf("Which counter would you like to move\n Enter the row and the column with a space inbetween\n");
     scanf("%d %d", &row, &column);
+    rowup = row - 1;
+    rowdown = row + 1;
     if(boardIndex[row][column][0] == PlayerColour)
     {
       printf("Which row would you like to move to? Type the option number\n");
-      printf("Option 1  %d\n", (row-1));
-      printf("Option 2  %d\n", (row+1));
+      if(row-1 != 0)
+      {
+       printf("Option 1  %d\n", (rowup));
+      }
+      if(row-1 != 7)
+      {
+       printf("Option 2  %d\n", (rowdown));
+      }
       scanf("%d", temp);
       if(temp == 1)
       {
         for(counts=0;counts<20;counts++)
         {
-          boardIndex[row][column][counts] = boardIndex[row][column][counts+1];
+          boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts+1];
         }
-          if(boardIndex[row-1][column][0]== '\0')
+          if(boardIndex[rowup][column][0]== '\0')
           {
-            boardIndex[row-1][column][0] = PlayerColour;
+            boardIndex[rowup][column][0] = PlayerColour;
           }
           else{
-            b[0] = PlayerColour;
-            for(counts=1;counts<20;counts++)
+            for(counts=24;counts>-1;counts--)
             {
-              b[counts] = boardIndex[row-1][column][counts-1];
-              boardIndex[row-1][column][counts-1] = b[counts-1];
+              boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts-1];
             }
+            boardIndex[rowup][column][0] = PlayerColour;
           }
         }
     if(temp == 2)
@@ -38,17 +45,16 @@ int Sidestep(char PlayerColour)
       {
         boardIndex[row][column][counts] = boardIndex[row][column][counts+1];
       }
-      if(boardIndex[row+1][column][0]== '\0')
+      if(boardIndex[rowdown][column][0]== '\0')
       {
-       boardIndex[row+1][column][0] = PlayerColour;
+       boardIndex[rowdown][column][0] = PlayerColour;
       }
       else{
-        b[0] = PlayerColour;
-        for(counts=1;counts<20;counts++)
+        for(counts=24;counts>-1;counts--)
         {
-          b[counts] = boardIndex[row+1][column][counts-1];
-          boardIndex[row+1][column][counts-1] = b[counts-1];
+          boardIndex[rowdown][column][counts] = boardIndex[rowdown][column][counts-1];
         }
+        boardIndex[rowup][column][0] = PlayerColour;
       }
     }
   }
