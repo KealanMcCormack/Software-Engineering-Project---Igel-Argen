@@ -1,27 +1,46 @@
 #include <stdio.h>
-
-extern struct player Players[6];
+#include "PrintBoard.h"
+extern struct Player players[6];
 extern int playerCount;
 extern char boardIndex[6][9][25];
+extern char colour[6][1][7];
 void PlacingTokens(void){
-    int i,j;
-    for(i=0;i<4;i++){
-        printf("Everyone place down token number %d", i);
-        for(j=0;j<playerCount;j++){
-            printf("%c player place down token number %d\n", players[j].colour, i);
-            printf("Choose the x y coordinates for counter %d", i);
-                if(i==0){
-                    scanf("%d %d", &players[j].counter_1[0], &players[j].counter_1[1]);
+    int i,j,n,m,a;
+    int ColumnFull[6];
+    int RowSelection;
+    for(i=0;i<4;i++){ //Round/Token number
+        for(j=0;j<playerCount;j++){ //player Number
+            printf("%s Player place down token number %d\n", colour[players[j].ColourLong][0][0],i);
+            printf("What row would you like to place your token in?\n");
+            for(n=0;n<6;n++){ //Checking what board spaces are free
+                        if(boardIndex[n][0][0]!='\0'){
+                            ColumnFull[m]=n;
+                            m++;
+                            for(a=m-1;a>=0;a--){
+                                if(ColumnFull[a]==ColumnFull[m]){
+                                    ColumnFull[m]='\0';
+                                    m--;
+                                }
+                            }
+                        }
+                    }
+            PrintBoard();
+                scanf("%d", &RowSelection);
+            for(a=0;a<6;a++){
+                if(ColumnFull[a]==RowSelection && m!=6){ //If m = 6 then it means that the entire first row is full
+                    printf("This square is full please pick another\n");
+                        scanf("%d", &RowSelection);
                 }
-                if(i==1){
-                    scanf("%d %d", &players[j].counter_2[0], &players[j].counter[1]);
+                if(ColumnFull[a]==RowSelection && m==6){
+                    printf("Put your token on another token\n");
+                        scanf("%d", &RowSelection);
+                        boardIndex[RowSelection][0][0]=boardIndex[RowSelection][0][1];
+                        boardIndex[RowSelection][0][0]=players[j].ColourShort;
                 }
-                if(i==2){
-                    scanf("%d %d", &players[j].counter_3[0], &players[j].counter_3[1]);
-                }
-                if(i==3){
-                    scanf("%d %d", &players[j].counter_4[0], &players[j].counter_4[1]);
-                }
+            }
+            if(m!=6){
+                boardIndex[RowSelection][0][0]=players[j].ColourShort;
+            }
         }
     }
 }

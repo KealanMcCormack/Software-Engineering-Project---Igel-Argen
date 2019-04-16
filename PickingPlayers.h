@@ -2,8 +2,8 @@
 #include <string.h>
 
 struct Player{
-    char ColourLetter;
-    int colourIndex;
+    char ColourShort;
+    int ColourLong;
     char name[20];
 };
 extern int playerCount;
@@ -29,13 +29,13 @@ void PickingPlayers(void){
         printf("Please select a colour using its letter code and number code [letter,number]\n");
             scanf("%c,%d", &temp,&temp2);
         for(j=0;j<playerCount;j++){
-           if(players[j].colourIndex == temp){
+           if(players[j].ColourShort == temp){
                printf("Please pick a different colour [letter,number]\n");
                     scanf("%c,%d", &temp,&temp2);
                 break;
            }
        }
-    players[i].colourIndex = temp2;
-    players[i].ColourLetter = temp;
+    players[i].ColourLong = temp2;
+    players[i].ColourShort = temp;
     }
 }
