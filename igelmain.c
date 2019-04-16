@@ -2,37 +2,37 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
-
-#include "Turns.h"
-#include "Sidestep.h"
 #include "Obstart.h"
 #include "Obstacles.h"
+#include "Turns.h"
+#include "Sidestep.h"
 #include "PrintBoard.h"
+#include "PickingPlayers.h"
+#include "PlacingTokens.h"
 #include "InspectorGadget.h"
-//#include "PickingPlayers.h"
-//#include "PlacingTokens.h"
-#include "WinnaWinnaChickenDinna.h"
+#include "Dice.h"
 
-typedef struct players{
-    char colour;
-}
 
 /*Declaring global variables*/
-players[6];
-char boardIndex[6][9][25] = { ' ' }; //Keeping track of where the pieces are on the board
+char colour[6][1][7] = {"Blue", "Orange", "Red", "Green", "Yellow", "White"};
+struct Player players[6];
+char boardIndex[6][9][25]; //Keeping track of where the pieces are on the board
 int playerCount; //Player Count
 
-int main()
-{
-  boardIndex[1][2][0] = 'K';
-  int count=0;
-  Obstart();
-  PrintBoard();
-  InspectorGadget();
-  for(count=0;count<5;count++)
-  {
-    Obstacles();
+int main(){
+    int count=0;i=0;
+    int WinStatus=0;
+    int Dice;
+    Obstart();
     PrintBoard();
-    Turns('K');
-  }
+    PickingPlayers();
+    PlacingTokens();
+    for(i=0;<playerCount;i++){
+        PrintBoard();
+        Dice = Dice();
+        Turns(Dice);
+        if(i==playerCount-1){
+            i=0;
+        }
+    }
 }
