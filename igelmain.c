@@ -11,6 +11,7 @@
 #include "InspectorGadget.h"
 //#include "PickingPlayers.h"
 //#include "PlacingTokens.h"
+#include "WinnaWinnaChickenDinna.h"
 
 typedef struct players{
     char colour;
