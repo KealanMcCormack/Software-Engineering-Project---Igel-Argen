@@ -1,9 +1,7 @@
 extern char boardIndex[6][9][25];
-void Turns(void)
+void Turns(int dice)
 {
-  int temp, counter=0, count, counts, dice;
-  srand(time(NULL));
-  dice = rand() % 6 + 1;
+  int i=0, temp, a=0, counter=0, count, counts;
   printf("\nTime to Move\n");
   for(count=1;count<10;count++)
   {
@@ -15,16 +13,27 @@ void Turns(void)
   }
   if(counter > 0)
   {
-  printf("\nWhich counter would you like to move?\n");
-  printf("%d\n ", dice);
-  scanf("%d", temp);
+  printf("\nDice = %d\n ", dice);
 
-  if(boardIndex[dice][temp][0] != '\0' && boardIndex[dice][temp][0] != 'X')//Come back when enum is done
+  while(a<1)
   {
-    for(counts=0;counts<20;counts++)
-    {
-      boardIndex[dice][temp][counts] = boardIndex[dice][temp][counts+1];
+     printf("Which counter would you like to move?\n");
+     scanf("%d", temp);
+     if(boardIndex[dice][temp][0] != '\0' && boardIndex[dice][temp][0] != 'X')//Come back when enum is done
+     {
+      for(counts=0;counts<20;counts++)
+      {
+       boardIndex[dice][temp][counts] = boardIndex[dice][temp][counts+1];
+       a++;
+      }
+     }
+     if(a==0)
+     {
+       printf("Would you mind picking a valid place\n");
+     }
     }
   }
- }
+  else{
+       printf("Sorry, there are no counters in this row that can be moved\n");
+      }
 }
