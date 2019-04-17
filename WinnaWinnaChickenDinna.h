@@ -1,4 +1,5 @@
 extern char boardIndex[6][9][25];
+extern struct Player players[6];
 int WinnaWinnaChickenDinna(int playerCount)
 {
   int count=0, counts=0, counter=0, i=0;
@@ -8,7 +9,7 @@ while(i < playerCount)
   {
     for(counts=0;counts<12;counts++)
     {
-      if(Players[i].Colourshort == boardIndex[counts][9][counts])
+      if(players[i].ColourShort == boardIndex[counts][9][counts])
       {
         counter++;
       }
@@ -20,5 +21,6 @@ while(i < playerCount)
     break;
   }
   i++;
-}
+ }
+ return 10;
 }
