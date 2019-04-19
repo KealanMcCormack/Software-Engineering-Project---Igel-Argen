@@ -3,7 +3,7 @@ void Turns(int dice)
 {
   int i=0, temp, a=0, counter=0, count, counts;
   printf("\nTime to Move\n");
-  for(count=1;count<10;count++)
+  for(count=0;count<9;count++)
   {
    printf("| %c |", boardIndex[dice][count][0]);
    if(boardIndex[dice][count][0] != '\0' && boardIndex[dice][count][0] != 'X')
@@ -17,8 +17,9 @@ void Turns(int dice)
 
   while(a<1)
   {
-     printf("Which counter would you like to move?\n");
+     printf("Which counter would you like to move? Type in the column number\n");
      scanf("%d", temp);
+     temp = temp - 1;
      if(boardIndex[dice][temp][0] != '\0' && boardIndex[dice][temp][0] != 'X')//Come back when enum is done
      {
       for(counts=0;counts<20;counts++)

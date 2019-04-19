@@ -7,6 +7,8 @@ int Sidestep(char PlayerColour)
   {
     printf("Which counter would you like to move\n Enter the row and the column with a space inbetween\n");
     scanf("%d %d", &row, &column);
+    row = row - 1;
+    column = column - 1;
     rowup = row - 1;
     rowdown = row + 1;
     if(boardIndex[row][column][0] == PlayerColour)
