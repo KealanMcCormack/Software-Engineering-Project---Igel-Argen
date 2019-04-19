@@ -1,7 +1,7 @@
 extern char boardIndex[6][9][25];
 int Sidestep(char PlayerColour)
 {
-  int a=0, temp, count=0, counts, row, column, rowup, rowdown;//Need to do chack for player colour and what counter they're moving
+  int a=0, temp, count=0, counts, row, column, rowup, rowdown;//Need to do check for player colour and what counter they're moving
 
   while(count != 2)
   {
@@ -11,18 +11,19 @@ int Sidestep(char PlayerColour)
     column = column - 1;
     rowup = row - 1;
     rowdown = row + 1;
-    if(boardIndex[row][column][0] == PlayerColour)
+    if(boardIndex[row][column][0] == PlayerColour && boardIndex[row][column][0] != 'X')
     {
+      count = 2;
       printf("Which row would you like to move to? Type the option number\n");
-      if(row-1 != 0)
+      if(row-1 != -1)
       {
-       printf("Option 1  %d\n", (rowup));
+       printf("Option 1  %d\n", (rowup+1));
       }
-      if(row-1 != 7)
+      if(row-1 != 6)
       {
-       printf("Option 2  %d\n", (rowdown));
+       printf("Option 2  %d\n", (rowdown+1));
       }
-      scanf("%d", temp);
+      scanf("%d", &temp);
       if(temp == 1)
       {
         for(counts=0;counts<20;counts++)
@@ -34,7 +35,7 @@ int Sidestep(char PlayerColour)
             boardIndex[rowup][column][0] = PlayerColour;
           }
           else{
-            for(counts=24;counts>-1;counts--)
+            for(counts=24;counts > -1;counts--)
             {
               boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts-1];
             }

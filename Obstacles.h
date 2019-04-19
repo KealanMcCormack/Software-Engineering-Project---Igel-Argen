@@ -2,7 +2,7 @@ extern char boardIndex[6][9][25];
 int Obstacles(void)
 {
   int count, counts, counter=0;
-  for(count=0;count<7;count++)
+  for(count=0;count<6;count++)
   {
      if(boardIndex[count][1][0] == '\0')
      {
@@ -18,7 +18,7 @@ int Obstacles(void)
      }
   }
   counter = 0;
-  for(count=0;count<7;count++)
+  for(count=0;count<6;count++)
   {
      if(boardIndex[count][2][0] == '\0')
      {
@@ -34,7 +34,7 @@ int Obstacles(void)
      }
   }
   counter = 0;
-  for(count=0;count<7;count++)
+  for(count=0;count<6;count++)
   {
      if(boardIndex[count][3][0] == '\0')
      {
@@ -50,7 +50,7 @@ int Obstacles(void)
      }
   }
   counter = 0;
-  for(count=0;count<7;count++)
+  for(count=0;count<6;count++)
   {
      if(boardIndex[count][4][0] == '\0')
      {
@@ -66,7 +66,7 @@ int Obstacles(void)
      }
   }
   counter = 0;
-  for(count=0;count<7;count++)
+  for(count=0;count<6;count++)
   {
      if(boardIndex[count][5][0] == '\0')
      {
@@ -82,7 +82,7 @@ int Obstacles(void)
      }
   }
   counter = 0;
-  for(count=0;count<7;count++)
+  for(count=0;count<6;count++)
   {
      if(boardIndex[count][6][0] == '\0')
      {
