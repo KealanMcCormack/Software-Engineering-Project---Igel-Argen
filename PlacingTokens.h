@@ -1,46 +1,33 @@
 #include <stdio.h>
-#include "PrintBoard.h"
 extern struct Player players[6];
-extern int playerCount;
 extern char boardIndex[6][9][25];
-extern char colour[6][1][7];
+extern int playerCount;
+void PrintBoard(void);
 void PlacingTokens(void){
-    int i,j,n,m,a;
-    int ColumnFull[6];
+    int i,j;
     int RowSelection;
-    for(i=0;i<4;i++){ //Round/Token number
-        for(j=0;j<playerCount;j++){ //player Number
-            printf("%s Player place down token number %d\n", colour[players[j].ColourLong][0][0],i);
-            printf("What row would you like to place your token in?\n");
-            for(n=0;n<6;n++){ //Checking what board spaces are free
-                        if(boardIndex[n][0][0]!='\0'){
-                            ColumnFull[m]=n;
-                            m++;
-                            for(a=m-1;a>=0;a--){
-                                if(ColumnFull[a]==ColumnFull[m]){
-                                    ColumnFull[m]='\0';
-                                    m--;
-                                }
-                            }
-                        }
-                    }
-            PrintBoard();
-                scanf("%d", &RowSelection);
-            for(a=0;a<6;a++){
-                if(ColumnFull[a]==RowSelection && m!=6){ //If m = 6 then it means that the entire first row is full
-                    printf("This square is full please pick another\n");
-                        scanf("%d", &RowSelection);
-                }
-                if(ColumnFull[a]==RowSelection && m==6){
-                    printf("Put your token on another token\n");
-                        scanf("%d", &RowSelection);
-                        boardIndex[RowSelection][0][0]=boardIndex[RowSelection][0][1];
-                        boardIndex[RowSelection][0][0]=players[j].ColourShort;
-                }
+    int bigcount;
+    int StackPtr = 4;
+    bigcount = playerCount * 4;
+    for(i=0;i<bigcount;i++){
+        for(j=0;j<6;j++){
+            printf("(%d) %c\n", j+1,boardIndex[j][0][0]);
+            printf("--\n");
+        }
+        printf("Player %s's Turn\n",  players[i%playerCount].name);
+    printf("Which row would you like to place your token in\n");
+        scanf("%d", &RowSelection);
+        if(boardIndex[RowSelection][0][StackPtr] == '\0'){
+            while(boardIndex[RowSelection][0][StackPtr] != '\0'){
+                printf("Please choose a valid row\n");
+                    scanf("%d", &RowSelection);
             }
-            if(m!=6){
-                boardIndex[RowSelection][0][0]=players[j].ColourShort;
-            }
+
+        }
+        boardIndex[RowSelection][0][StackPtr] = players[bigcount%4].ColourShort;
+        if(bigcount % 6 == 0 && i != 0)
+        {
+            StackPtr--;
         }
     }
 }
