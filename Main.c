@@ -57,11 +57,11 @@ int main(void)
         WinStatus = Winner(playerCount);//checks win conditions
         if(WinStatus < 7)
         {
-          printf("Congrats to player %s\n", players[WinStatus].name);
+          printf("Congrats to player %s\n", players[WinStatus].name);//prints win message
           printf("Well played, hard fought win\n");
-          break;
+          break;//Ends loop and program
         }
-        if(i==playerCount-1){
+        if(i==playerCount-1){//resets i
             i=-1;
         }
     }

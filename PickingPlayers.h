@@ -5,7 +5,7 @@ struct Player{
     char ColourShort;
     int ColourLong;
     char name[20];
-};
+}; //Declares a struct to hold player data
 extern int playerCount;
 extern struct Player players[6];
 
@@ -14,12 +14,12 @@ void PickingPlayers(void){
     char temp;
     int temp2;
     printf("Please enter the amount of players (2-6)\n");
-        scanf(" %d", &playerCount);
-        fflush(stdout);
+        scanf(" %d", &playerCount);//Takes number of players
+        fflush(stdout);//Removes any other input from command line
     for(i=0;i<playerCount;i++){
         fflush(stdout);
         printf("Please enter your name\n");
-            scanf(" %s", &players[i].name);
+            scanf(" %s", &players[i].name);//Saves player name into array of structs
         printf("Please pick your colour:\n"); //Getting player colours
         printf("Blue = b(0)\n");
         printf("Orange = o(1)\n");
@@ -30,7 +30,7 @@ void PickingPlayers(void){
         printf("Please select a colour using its letter code and number code with a comma between e.g. w,5\n");
             scanf(" %c, %d", &temp,&temp2);
         for(j=0;j<playerCount;j++){
-           if(players[j].ColourShort == temp){
+           if(players[j].ColourShort == temp){//Ensures each player has a different colour
                printf("Please pick a different colour [letter,number]\n");
                     scanf(" %c, %d", &temp,&temp2);
                 break;

@@ -7,17 +7,17 @@ int Sidestep(char PlayerColour)
   {
     printf("Which counter would you like to move\n Enter the row and the column with a space inbetween\n");
     scanf("%d %d", &row, &column);
-    row = row - 1;
+    row = row - 1;//Array starts at 0,0 so varibles must be adjusted to this
     column = column - 1;
     rowup = row - 1;
     rowdown = row + 1;
-    if(boardIndex[row][column][0] == PlayerColour && boardIndex[row][column][0] != 'X')
+    if(boardIndex[row][column][0] == PlayerColour && boardIndex[row][column][0] != 'X')//Checks that this is a valid move
     {
       count = 2;
       printf("Which row would you like to move to? Type the option number\n");
       if(rowup != -1)
       {
-       printf("Option 1  %d\n", (row));
+       printf("Option 1  %d\n", (row));//Prints options for movement
       }
       if(rowdown != 6)
       {
@@ -28,18 +28,25 @@ int Sidestep(char PlayerColour)
       {
         for(counts=0;counts<20;counts++)
         {
-          boardIndex[row][column][counts] = boardIndex[row][column][counts+1];
+          boardIndex[row][column][counts] = boardIndex[row][column][counts+1];//Shifts boardIndex down to remove token being moved
         }
           if(boardIndex[rowup][column][0]== '\0')
           {
-            boardIndex[rowup][column][0] = PlayerColour;
+            boardIndex[rowup][column][0] = PlayerColour;//If new square is free the players token replaces it
           }
           else{
-            for(counts=24;counts > 0;counts--)
+            for(counts=24;counts > 0;counts--)//If the square isn't free the tokens in the square are shifted back to make room for the new token on top
             {
               boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts-1];
             }
+            if(boardIndex[rowup][column][1] == 'X')
+            {
+              boardIndex[rowup][column][1] = PlayerColour;
+              boardIndex[rowup][column][0] = 'X';
+            }
+            else{
             boardIndex[rowup][column][0] = PlayerColour;
+          }
           }
         }
     if(temp == 2)
@@ -57,7 +64,14 @@ int Sidestep(char PlayerColour)
         {
           boardIndex[rowdown][column][counts] = boardIndex[rowdown][column][counts-1];
         }
+        if(boardIndex[rowdown][column][1] == 'X')
+        {
+          boardIndex[rowdown][column][1] = PlayerColour;
+          boardIndex[rowdown][column][0] = 'X';
+        }
+        else{
         boardIndex[rowdown][column][0] = PlayerColour;
+      }
       }
     }
   }
