@@ -1,24 +1,24 @@
 extern char boardIndex[6][9][25];
 int Obstacles(void)
-{
+{//Removes obstacles as tokens move past up the board
   int count, counts, counter=0;
-  for(count=0;count<6;count++)
+  for(count=0;count<6;count++)//Loops 6 times
   {
-     if(boardIndex[count][0][0] == '\0')
-     {
-       counter++;
+     if(boardIndex[count][0][0] == '\0')//Enters statement if square is empty
+     {  //count moves through rows in the board
+       counter++;  //counter increases if squares in the column are empty
      }
      if(counter==6 && boardIndex[4][1][0] == 'X')
-     {
+     {//if all rows are empty and X still remains staement is entered
        for(counts=0;counts<20;counts++)
        {
-         boardIndex[4][1][counts] = boardIndex[4][1][counts+1];
-         count = 7;
+         boardIndex[4][1][counts] = boardIndex[4][1][counts+1];//overwrites X and moves stack down
+         count = 7;//exits loop
        }
      }
   }
-  counter = 0;
-  for(count=0;count<6;count++)
+  counter = 0;//Restarts counter at 0
+  for(count=0;count<6;count++)//All loops are the same as the first, just different column being checked and obstacle being removed
   {
      if(boardIndex[count][1][0] == '\0')
      {

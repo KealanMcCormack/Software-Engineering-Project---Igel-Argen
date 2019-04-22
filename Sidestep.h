@@ -15,11 +15,11 @@ int Sidestep(char PlayerColour)
     {
       count = 2;
       printf("Which row would you like to move to? Type the option number\n");
-      if(row-1 != -1)
+      if(rowup != -1)
       {
-       printf("Option 1  %d\n", (rowup+1));
+       printf("Option 1  %d\n", (row));
       }
-      if(row-1 != 6)
+      if(rowdown != 6)
       {
        printf("Option 2  %d\n", (rowdown+1));
       }
@@ -35,7 +35,7 @@ int Sidestep(char PlayerColour)
             boardIndex[rowup][column][0] = PlayerColour;
           }
           else{
-            for(counts=24;counts > -1;counts--)
+            for(counts=24;counts > 0;counts--)
             {
               boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts-1];
             }
@@ -53,11 +53,11 @@ int Sidestep(char PlayerColour)
        boardIndex[rowdown][column][0] = PlayerColour;
       }
       else{
-        for(counts=24;counts>-1;counts--)
+        for(counts=24;counts>0;counts--)
         {
           boardIndex[rowdown][column][counts] = boardIndex[rowdown][column][counts-1];
         }
-        boardIndex[rowup][column][0] = PlayerColour;
+        boardIndex[rowdown][column][0] = PlayerColour;
       }
     }
   }

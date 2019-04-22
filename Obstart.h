@@ -1,5 +1,5 @@
 extern char boardIndex[6][9][25];
-void Obstart(void)
+void Obstart(void)//Initialises obstacles onto the boardindex
 {
   boardIndex[0][2][0] = 'X';
   boardIndex[1][5][0] = 'X';

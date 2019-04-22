@@ -5,6 +5,7 @@ void Turns(int dice)
   char hold;
   printf("\nTime to Move\n");
   dice = dice - 1;
+    printf("    1    2    3    4    5    6    7    8    9 \n");
   for(count=0;count<9;count++)
   {
    printf("| %c |", boardIndex[dice][count][0]);
@@ -37,7 +38,7 @@ void Turns(int dice)
        a++;
       }
 
-      for(counts=24;counts > -1;counts--)
+      for(counts=24;counts > 0;counts--)
       {
         boardIndex[dice][temp+1][counts] = boardIndex[dice][temp + 1][counts-1];
       }

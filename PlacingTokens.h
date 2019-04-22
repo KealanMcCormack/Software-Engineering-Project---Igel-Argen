@@ -25,7 +25,7 @@ void PlacingTokens(void){
             }
         }
         boardIndex[RowSelection][0][StackPtr] = players[i%playerCount].ColourShort;
-        if((i % 5) == 0 && i > 0)
+        if(((i+1) % 6) == 0 && i > 0)
         {
             StackPtr--;
         }
@@ -55,6 +55,5 @@ void PrintBoard(void)
     }
     printf("\n");
     a++;
-    counts = 1;
   }
 }
