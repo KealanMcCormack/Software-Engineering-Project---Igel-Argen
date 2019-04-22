@@ -39,7 +39,7 @@ int Sidestep(char PlayerColour)
             {
               boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts-1];
             }
-            if(boardIndex[rowup][column][1] == 'X')
+            if(boardIndex[rowup][column][1] == 'X')//Checks if the sidestep is into an obstacle and reacts accordingly
             {
               boardIndex[rowup][column][1] = PlayerColour;
               boardIndex[rowup][column][0] = 'X';
@@ -53,18 +53,18 @@ int Sidestep(char PlayerColour)
     {
       for(counts=0;counts<20;counts++)
       {
-        boardIndex[row][column][counts] = boardIndex[row][column][counts+1];
+        boardIndex[row][column][counts] = boardIndex[row][column][counts+1];//Shifts boardIndex down to remove token being moved
       }
       if(boardIndex[rowdown][column][0]== '\0')
       {
-       boardIndex[rowdown][column][0] = PlayerColour;
+       boardIndex[rowdown][column][0] = PlayerColour;//If new square is free the players token replaces it
       }
       else{
-        for(counts=24;counts>0;counts--)
+        for(counts=24;counts>0;counts--)//If the square isn't free the tokens in the square are shifted back to make room for the new token on top
         {
           boardIndex[rowdown][column][counts] = boardIndex[rowdown][column][counts-1];
         }
-        if(boardIndex[rowdown][column][1] == 'X')
+        if(boardIndex[rowdown][column][1] == 'X')//Checks if the sidestep is into an obstacle and reacts accordingly
         {
           boardIndex[rowdown][column][1] = PlayerColour;
           boardIndex[rowdown][column][0] = 'X';
@@ -76,7 +76,7 @@ int Sidestep(char PlayerColour)
     }
   }
   else{
-    printf("I don't believe that to be your token good sir\n");
+    printf("I don't believe that to be your token good sir\n");//prints if the token isn't the same colour as the player
     printf("Still looking to switch, type 1 for yes or 2 for no\n");
     scanf("%d", &count);
   }

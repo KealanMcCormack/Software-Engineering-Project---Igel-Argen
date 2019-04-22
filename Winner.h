@@ -9,7 +9,7 @@ while(i < playerCount)//Loops through all players
   {
     for(counts=0;counts<12;counts++)
     {
-      if(boardIndex[count][8][counts] != '\0')
+      if(boardIndex[count][8][counts] != '\0')//Checks if there is a players token in the final column
       {
       if(players[i].ColourShort == boardIndex[count][8][counts])
       {
@@ -18,12 +18,12 @@ while(i < playerCount)//Loops through all players
     }
     }
   }
-  if(counter == 3)
+  if(counter == 3)//If 3 tokens are owned by the same player
   {
     return i;//return player struct number
     break;
   }
-  counter = 0;
+  counter = 0;//resets counter to check for each player
   i++;
  }
   return 10;
