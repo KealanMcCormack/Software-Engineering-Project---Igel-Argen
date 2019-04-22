@@ -14,6 +14,6 @@ I also wrote a simple dice function using rand() linked with time to generate a 
 I (Kealan) was tasked with a number of functions these include Obstart(), Obstacles(), Turns(), InspectorGadget(), Sidestep() and Winner().
 Most of these were simple tasks, however turns and Sidestep were a bit tricky due to their main role within the program and multitude of actions required within them. 
 All the functions I wrote run off the same data sets as included in main, using the BoardIndex array as a stack and the players struct to reference data. 
-I also was resposible for testing of the code for different numbers of players and ensuring that the mechanics of the game work. 
+I also was responsible for testing of the code for different numbers of players and ensuring that the mechanics of the game work. 
 I authored the main function with my partner and made tweaks to both sets of code in order to make them run correctly together and ensuring there are no errors or bugs within the code.
 I also commented all my code and have explained how it works through these comments.
