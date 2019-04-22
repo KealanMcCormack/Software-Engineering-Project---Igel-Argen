@@ -5,11 +5,11 @@ int WinnaWinnaChickenDinna(int playerCount)
   int count=0, counts=0, counter=0, i=0;
 while(i < playerCount)
 {
-  for(count=0;count;count++)
+  for(count=0;count < 6;count++)
   {
     for(counts=0;counts<12;counts++)
     {
-      if(players[i].ColourShort == boardIndex[counts][9][counts])
+      if(players[i].ColourShort == boardIndex[count][9][counts])
       {
         counter++;
       }

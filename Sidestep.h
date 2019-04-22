@@ -28,7 +28,7 @@ int Sidestep(char PlayerColour)
       {
         for(counts=0;counts<20;counts++)
         {
-          boardIndex[rowup][column][counts] = boardIndex[rowup][column][counts+1];
+          boardIndex[row][column][counts] = boardIndex[row][column][counts+1];
         }
           if(boardIndex[rowup][column][0]== '\0')
           {

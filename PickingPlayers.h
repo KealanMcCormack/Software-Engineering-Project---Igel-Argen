@@ -13,7 +13,7 @@ void PickingPlayers(void){
     int i,j;
     char temp;
     int temp2;
-    printf("Please enter the amount of players\n");
+    printf("Please enter the amount of players (2-6)\n");
         scanf(" %d", &playerCount);
         fflush(stdout);
     for(i=0;i<playerCount;i++){
@@ -27,7 +27,7 @@ void PickingPlayers(void){
         printf("Green = g(3)\n");
         printf("Yellow = y(4)\n");
         printf("White = w(5)\n");
-        printf("Please select a colour using its letter code and number code [letter,number]\n");
+        printf("Please select a colour using its letter code and number code with a comma between e.g. w,5\n");
             scanf(" %c, %d", &temp,&temp2);
         for(j=0;j<playerCount;j++){
            if(players[j].ColourShort == temp){
@@ -39,4 +39,4 @@ void PickingPlayers(void){
     players[i].ColourLong = temp2;
     players[i].ColourShort = temp;
     }
-}
+  }

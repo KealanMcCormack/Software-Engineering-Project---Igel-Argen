@@ -21,6 +21,7 @@ void PlacingTokens(void){
             while(boardIndex[RowSelection][0][StackPtr] != '\0'){
                 printf("Please choose a valid row\n");
                     scanf("%d", &RowSelection);
+                      RowSelection = RowSelection - 1;
             }
         }
         boardIndex[RowSelection][0][StackPtr] = players[i%playerCount].ColourShort;
